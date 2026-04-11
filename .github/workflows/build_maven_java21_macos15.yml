@@ -18,27 +18,26 @@
 #
 
 name: "Build / Maven (master, Scala 2.13, Hadoop 3, JDK 21, MacOS-15)"
-
 on:
-  schedule:
-    - cron: '0 20 */2 * *'
-  workflow_dispatch:
-
+    schedule:
+        - cron: '0 20 */2 * *'
+    workflow_dispatch:
 jobs:
-  run-build:
-    permissions:
-      packages: write
-    name: Run
-    uses: ./.github/workflows/maven_test.yml
-    if: github.repository == 'apache/spark'
-    with:
-      java: 21
-      os: macos-15
-      arch: arm64
-      envs: >-
-        {
-          "SPARK_TEST_SQL_SHUFFLE_EXCHANGE_MAX_THREAD_THRESHOLD": "256",
-          "SPARK_TEST_SQL_RESULT_QUERY_STAGE_MAX_THREAD_THRESHOLD": "256",
-          "SPARK_TEST_HIVE_SHUFFLE_EXCHANGE_MAX_THREAD_THRESHOLD": "48",
-          "SPARK_TEST_HIVE_RESULT_QUERY_STAGE_MAX_THREAD_THRESHOLD": "48"
-        }
+    run-build:
+        permissions:
+            packages: write
+        name: Run
+        uses: ./.github/workflows/maven_test.yml
+        if: github.repository == 'apache/spark'
+        with:
+            java: 21
+            os: macos-15
+            arch: arm64
+            envs: >-
+                {
+
+                  "SPARK_TEST_SQL_SHUFFLE_EXCHANGE_MAX_THREAD_THRESHOLD": "256",
+                  "SPARK_TEST_SQL_RESULT_QUERY_STAGE_MAX_THREAD_THRESHOLD": "256",
+                  "SPARK_TEST_HIVE_SHUFFLE_EXCHANGE_MAX_THREAD_THRESHOLD": "48",
+                  "SPARK_TEST_HIVE_RESULT_QUERY_STAGE_MAX_THREAD_THRESHOLD": "48"
+                }
