@@ -18,30 +18,30 @@
 #
 
 name: "Build / Python-only (master, PyPy 3.10)"
-
 on:
-  schedule:
-    - cron: '0 15 * * *'
-  workflow_dispatch:
-
+    schedule:
+        - cron: '0 15 * * *'
+    workflow_dispatch:
 jobs:
-  run-build:
-    permissions:
-      packages: write
-    name: Run
-    uses: ./.github/workflows/build_and_test.yml
-    if: github.repository == 'apache/spark'
-    with:
-      java: 17
-      branch: master
-      hadoop: hadoop3
-      envs: >-
-        {
-          "PYSPARK_IMAGE_TO_TEST": "pypy-310",
-          "PYTHON_TO_TEST": "pypy3"
-        }
-      jobs: >-
-        {
-          "pyspark": "true",
-          "pyspark-pandas": "true"
-        }
+    run-build:
+        permissions:
+            packages: write
+        name: Run
+        uses: ./.github/workflows/build_and_test.yml
+        if: github.repository == 'apache/spark'
+        with:
+            java: 17
+            branch: master
+            hadoop: hadoop3
+            envs: >-
+                {
+
+                  "PYSPARK_IMAGE_TO_TEST": "pypy-310",
+                  "PYTHON_TO_TEST": "pypy3"
+                }
+            jobs: >-
+                {
+
+                  "pyspark": "true",
+                  "pyspark-pandas": "true"
+                }
