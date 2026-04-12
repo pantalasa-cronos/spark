@@ -18,31 +18,31 @@
 #
 
 name: "Build / Python-only (master, Python 3.13, no GIL)"
-
 on:
-  schedule:
-    - cron: '0 19 */3 * *'
-  workflow_dispatch:
-
+    schedule:
+        - cron: '0 19 */3 * *'
+    workflow_dispatch:
 jobs:
-  run-build:
-    permissions:
-      packages: write
-    name: Run
-    uses: ./.github/workflows/build_and_test.yml
-    if: github.repository == 'apache/spark'
-    with:
-      java: 17
-      branch: master
-      hadoop: hadoop3
-      envs: >-
-        {
-          "PYSPARK_IMAGE_TO_TEST": "python-313-nogil",
-          "PYTHON_TO_TEST": "python3.13t",
-          "PYTHON_GIL": "0"
-        }
-      jobs: >-
-        {
-          "pyspark": "true",
-          "pyspark-pandas": "true"
-        }
+    run-build:
+        permissions:
+            packages: write
+        name: Run
+        uses: ./.github/workflows/build_and_test.yml
+        if: github.repository == 'apache/spark'
+        with:
+            java: 17
+            branch: master
+            hadoop: hadoop3
+            envs: >-
+                {
+
+                  "PYSPARK_IMAGE_TO_TEST": "python-313-nogil",
+                  "PYTHON_TO_TEST": "python3.13t",
+                  "PYTHON_GIL": "0"
+                }
+            jobs: >-
+                {
+
+                  "pyspark": "true",
+                  "pyspark-pandas": "true"
+                }
