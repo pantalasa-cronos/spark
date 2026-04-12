@@ -18,17 +18,15 @@
 #
 
 name: "Build"
-
 on:
-  push:
-    branches:
-    - '**'
-
+    push:
+        branches:
+            - '**'
 jobs:
-  call-build-and-test:
-    permissions:
-      packages: write
-    name: Run
-    uses: ./.github/workflows/build_and_test.yml
-    secrets:
-      codecov_token: ${{ secrets.CODECOV_TOKEN }}
+    call-build-and-test:
+        permissions:
+            packages: write
+        name: Run
+        uses: ./.github/workflows/build_and_test.yml
+        secrets:
+            codecov_token: ${{ secrets.CODECOV_TOKEN }}

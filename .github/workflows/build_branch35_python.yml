@@ -18,30 +18,30 @@
 #
 
 name: "Build / Python-only (branch-3.5)"
-
 on:
-  schedule:
-    - cron: '0 11 * * *'
-  workflow_dispatch:
-
+    schedule:
+        - cron: '0 11 * * *'
+    workflow_dispatch:
 jobs:
-  run-build:
-    permissions:
-      packages: write
-    name: Run
-    uses: ./.github/workflows/build_and_test.yml
-    if: github.repository == 'apache/spark'
-    with:
-      java: 8
-      branch: branch-3.5
-      hadoop: hadoop3
-      envs: >-
-        {
-          "PYSPARK_IMAGE_TO_TEST": "",
-          "PYTHON_TO_TEST": ""
-        }
-      jobs: >-
-        {
-          "pyspark": "true",
-          "pyspark-pandas": "true"
-        }
+    run-build:
+        permissions:
+            packages: write
+        name: Run
+        uses: ./.github/workflows/build_and_test.yml
+        if: github.repository == 'apache/spark'
+        with:
+            java: 8
+            branch: branch-3.5
+            hadoop: hadoop3
+            envs: >-
+                {
+
+                  "PYSPARK_IMAGE_TO_TEST": "",
+                  "PYTHON_TO_TEST": ""
+                }
+            jobs: >-
+                {
+
+                  "pyspark": "true",
+                  "pyspark-pandas": "true"
+                }
