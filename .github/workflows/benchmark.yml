@@ -59,7 +59,7 @@ on:
 jobs:
   matrix-gen:
     name: Generate matrix for job splits
-    runs-on: ubuntu-latest
+    runs-on: cronos
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     env:
@@ -73,7 +73,7 @@ jobs:
   tpcds-1g-gen:
     name: "Generate an TPC-DS dataset with SF=1"
     if: contains(inputs.class, 'TPCDSQueryBenchmark') || contains(inputs.class, 'ZStandardTPCDSDataBenchmark') || contains(inputs.class, '*')
-    runs-on: ubuntu-latest
+    runs-on: cronos
     env:
       SPARK_LOCAL_IP: localhost
     steps:
@@ -133,7 +133,7 @@ jobs:
     name: "Run benchmarks: ${{ inputs.class }} (JDK ${{ inputs.jdk }}, Scala ${{ inputs.scala }}, ${{ matrix.split }} out of ${{ inputs.num-splits }} splits)"
     if: always()
     needs: [matrix-gen, tpcds-1g-gen]
-    runs-on: ubuntu-latest
+    runs-on: cronos
     strategy:
       fail-fast: false
       matrix:

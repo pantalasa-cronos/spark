@@ -47,7 +47,7 @@ on:
 jobs:
   main:
     if: github.repository == 'apache/spark'
-    runs-on: ubuntu-latest
+    runs-on: cronos
     permissions:
       packages: write
     steps:

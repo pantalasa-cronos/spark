@@ -28,7 +28,7 @@ jobs:
   # Build: build Spark and run the tests for specified modules using SBT
   build:
     name: "Build modules: pyspark-client"
-    runs-on: ubuntu-latest
+    runs-on: cronos
     timeout-minutes: 120
     if: github.repository == 'apache/spark'
     steps:
