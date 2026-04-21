@@ -1,5 +1,6 @@
 # Apache Spark
 
+
 Spark is a unified analytics engine for large-scale data processing. It provides
 high-level APIs in Scala, Java, Python, and R (Deprecated), and an optimized engine that
 supports general computation graphs for data analysis. It also supports a
@@ -15,7 +16,7 @@ and Structured Streaming for stream processing.
 [![PyPI Downloads](https://static.pepy.tech/personalized-badge/pyspark?period=month&units=international_system&left_color=black&right_color=orange&left_text=PyPI%20downloads)](https://pypi.org/project/pyspark/)
 
 
-## Online Documentation
+## Online Documentation 
 
 You can find the latest Spark documentation, including a programming
 guide, on the [project web page](https://spark.apache.org/documentation.html).
