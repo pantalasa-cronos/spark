@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: auth
+spec:
+  project: platform
+  source:
+    repoURL: https://github.com/pantalasa-cronos/gitops.git
+    path: manifests/auth
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: auth
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

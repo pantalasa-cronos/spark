@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rust-service
+spec:
+  project: platform
+  source:
+    repoURL: https://github.com/pantalasa-cronos/gitops.git
+    path: manifests/rust-service
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: rust-service
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

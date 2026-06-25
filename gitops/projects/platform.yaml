@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: platform
+spec:
+  description: Platform-managed GitOps applications
+  sourceRepos:
+    - https://github.com/pantalasa-cronos/gitops.git
+  destinations:
+    - {namespace: auth, server: https://kubernetes.default.svc}
+    - {namespace: frontend, server: https://kubernetes.default.svc}
+    - {namespace: rust-service, server: https://kubernetes.default.svc}

@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rust-service
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: rust-service
+          image: rust-service:4f6aa20ef4f47893a88340a709ff1b3053a7b495

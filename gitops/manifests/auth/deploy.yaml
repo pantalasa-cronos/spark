@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: auth
+          image: auth:8c1e85a59a638d187126ec4e1dd228176d91f54f
